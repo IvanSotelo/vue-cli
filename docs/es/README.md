@@ -1,41 +1,41 @@
 ---
 home: true
 heroImage: /favicon.png
-actionText: Get Started →
-actionLink: /guide/
+actionText: Empezando →
+actionLink: /es/guide/
 footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
 
 <div class="features">
   <div class="feature">
-    <h2>Feature Rich</h2>
-    <p>Out-of-the-box support for Babel, TypeScript, ESLint, PostCSS, PWA, Unit Testing & End-to-end Testing.</p>
+    <h2>Características ricas</h2>
+    <p>Compatibilidad inmediata con Babel, TypeScript, ESLint, PostCSS, PWA, pruebas unitarias y pruebas de punto a punto.</p>
   </div>
   <div class="feature">
-    <h2>Extensible</h2>
-    <p>The plugin system allows the community to build and share reusable solutions to common needs.</p>
+    <h2>Extensibilidad</h2>
+    <p>El sistema de plugins permite a la comunidad crear y compartir soluciones reutilizables para necesidades comunes.</p>
   </div>
   <div class="feature">
-    <h2>No Need to Eject</h2>
-    <p>Vue CLI is fully configurable without the need for ejecting. This allows your project to stay up-to-date for the long run.</p>
+    <h2>Configuración interior</h2>
+    <p>Vue CLI es totalmente configurable sin extracción de configuración. Esto permite que su proyecto se mantenga actualizado a largo plazo.</p>
   </div>
   <div class="feature">
-    <h2>Graphical User Interface</h2>
-    <p>Create, develop and manage your projects through an accompanying graphical user interface.</p>
+    <h2>Interfaz gráfica del usuario</h2>
+    <p>Cree, desarrolle y gestione sus proyectos a través de una interfaz gráfica de usuario.</p>
   </div>
   <div class="feature">
-    <h2>Instant Prototyping</h2>
-    <p>Instantly prototype new ideas with a single Vue file.</p>
+    <h2>Prototipos instantáneos</h2>
+    <p>Prototipo instantáneo de nuevas ideas con un solo archivo Vue.</p>
   </div>
   <div class="feature">
-    <h2>Future Ready</h2>
-    <p>Effortlessly ship native ES2015 code for modern browsers, or build your vue components as native web components.</p>
+    <h2>Listo para el futuro</h2>
+    <p>Envíe sin esfuerzo el código ES2015 nativo para navegadores modernos, o cree sus componentes vue como componentes web nativos.</p>
   </div>
 </div>
 
-## Getting Started
+## Empezando
 
-Install:
+Instalación:
 
 ``` bash
 npm install -g @vue/cli
@@ -43,7 +43,7 @@ npm install -g @vue/cli
 yarn global add @vue/cli
 ```
 
-Create a project:
+Crea un proyecto:
 
 ``` bash
 vue create my-project
