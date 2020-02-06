@@ -14,6 +14,11 @@ module.exports = {
       lang: 'ru',
       title: 'Vue CLI',
       description: '🛠️ Стандартный инструментарий для разработки на Vue.js'
+    },
+    '/es/': {
+      lang: 'es',
+      title: 'Vue CLI',
+      description: '🛠️ Herramientas estándar para el desarrollo de Vue.js'
     }
   },
   head: [
@@ -42,6 +47,10 @@ module.exports = {
         '/ru/': {
           message: 'Доступно обновление контента',
           buttonText: 'Обновить'
+        },
+        '/es/': {
+          message: 'Nuevo contenido disponible.',
+          buttonText: 'Actualizar'
         }
       }
     }
@@ -348,6 +357,111 @@ module.exports = {
               '/ru/core-plugins/e2e-nightwatch.md'
             ]
           }]
+        }
+      },
+      '/es/': {
+        label: 'Español',
+        selectText: 'Idiomas',
+        lastUpdated: 'Última actualización',
+        editLinkText: 'Edite esta página en GitHub',
+        nav: [
+          {
+            text: 'Guía',
+            link: '/es/guide/'
+          },
+          {
+            text: 'Referencia de configuración',
+            link: '/es/config/'
+          },
+          {
+            text: 'Guía de desarrollo de plugins',
+            items: [
+              { text: 'Guía de desarrollo de plugins', link: '/es/dev-guide/plugin-dev.md' },
+              { text: 'Información del complemento de IU', link: '/es/dev-guide/ui-info.md' },
+              { text: 'API de complemento de UI', link: '/es/dev-guide/ui-api.md' },
+              { text: 'UI localización', link: '/es/dev-guide/ui-localization.md' }
+            ]
+          },
+          {
+            text: 'Plugins',
+            items: [
+              { text: 'Complementos principales', link: '/es/core-plugins/' },
+              { text: 'Examinar plugins', link: 'https://awesomejs.dev/for/vue-cli/' }
+            ]
+          },
+          {
+            text: 'Migrando de v3',
+            link: '/es/migrating-from-v3/'
+          },
+          {
+            text: 'Registro de cambios',
+            link: 'https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.md'
+          }
+        ],
+        sidebar: {
+          '/es/guide/': [
+            '/es/guide/',
+            '/es/guide/installation',
+            {
+              title: 'Fundamentos',
+              collapsable: false,
+              children: [
+                '/es/guide/prototyping',
+                '/es/guide/creating-a-project',
+                '/es/guide/plugins-and-presets',
+                '/es/guide/cli-service'
+              ]
+            },
+            {
+              title: 'Desarrollo',
+              collapsable: false,
+              children: [
+                '/es/guide/browser-compatibility',
+                '/es/guide/html-and-static-assets',
+                '/es/guide/css',
+                '/es/guide/webpack',
+                '/es/guide/mode-and-env',
+                '/es/guide/build-targets',
+                '/es/guide/deployment',
+                '/es/guide/troubleshooting'
+              ]
+            }
+          ],
+          '/es/dev-guide/': [
+            '/es/dev-guide/plugin-dev.md',
+            {
+              title: 'Referencia API',
+              collapsable: false,
+              children: [
+                '/es/dev-guide/plugin-api.md',
+                '/es/dev-guide/generator-api.md',
+              ]
+            },
+            {
+              title: 'Desarrollo UI',
+              collapsable: false,
+              children: [
+                '/es/dev-guide/ui-info.md',
+                '/es/dev-guide/ui-api.md',
+                '/es/dev-guide/ui-localization.md'
+              ]
+            }
+          ],
+          '/es/core-plugins/': [{
+            title: 'Complementos principales de Vue CLI',
+            collapsable: false,
+            children: [
+              '/es/core-plugins/babel.md',
+              '/es/core-plugins/typescript.md',
+              '/es/core-plugins/eslint.md',
+              '/es/core-plugins/pwa.md',
+              '/es/core-plugins/unit-jest.md',
+              '/es/core-plugins/unit-mocha.md',
+              '/es/core-plugins/e2e-cypress.md',
+              '/es/core-plugins/e2e-nightwatch.md'
+            ]
+          }],
+
         }
       }
     }
