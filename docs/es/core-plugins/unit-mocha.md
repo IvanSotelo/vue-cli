@@ -1,35 +1,35 @@
 # @vue/cli-plugin-unit-mocha
 
-> unit-mocha plugin for vue-cli
+> plugin unit-mocha para vue-cli
 
-## Injected Commands
+## Comandos inyectados
 
 - **`vue-cli-service test:unit`**
 
-  Run unit tests with [mochapack](https://github.com/sysgears/mochapack) + [chai](http://chaijs.com/).
+  Ejecuta las pruebas unitarias con [mochapack](https://github.com/sysgears/mochapack) + [chai](http://chaijs.com/).
 
-  **Note the tests are run inside Node.js with browser environment simulated with JSDOM.**
+  **Tenga en cuenta que las pruebas se ejecutan dentro de Node.js con un entorno de navegador simulado con JSDOM.**
 
   ```
-  Usage: vue-cli-service test:unit [options] [...files]
+  Ejecuta: vue-cli-service test:unit [options] [...files]
 
-  Options:
+  Opciones:
 
-    --watch, -w   run in watch mode
-    --grep, -g    only run tests matching <pattern>
-    --slow, -s    "slow" test threshold in milliseconds
-    --timeout, -t timeout threshold in milliseconds
-    --bail, -b    bail after first test failure
-    --require, -r require the given module before running tests
-    --include     include the given module into test bundle
-    --inspect-brk Enable inspector to debug the tests
+    --watch, -w   correr en modo watch
+    --grep, -g    solo ejecuta pruebas que coinciden con <patron>
+    --slow, -s    prueba "lenta" en milisegundos
+    --timeout, -t tiempo de espera en milisegundos
+    --bail, -b    libertad después de la primera prueba fallida
+    --require, -r requiere el módulo dado antes de ejecutar pruebas
+    --include     incluir el módulo dado en el paquete de prueba
+    --inspect-brk habilitar al inspector para depurar las pruebas
   ```
 
-  Default files matches are: any files in `tests/unit` that end in `.spec.(ts|js)`.
+  Las coincidencias de archivos predeterminadas son: cualquier archivo en `tests/unit` que termine en `.spec.(ts|js)`.
 
-  All [mochapack command line options](https://sysgears.github.io/mochapack/docs/installation/cli-usage.html) are also supported.
+  Todas las [opciones de línea de comandos de mochapack](https://sysgears.github.io/mochapack/docs/installation/cli-usage.html) también son compatibles.
 
-## Installing in an Already Created Project
+## Instalación en un proyecto ya creado
 
 ``` sh
 vue add unit-mocha

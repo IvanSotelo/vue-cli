@@ -1,31 +1,31 @@
 # @vue/cli-plugin-eslint
 
-> eslint plugin for vue-cli
+> plugin eslint para vue-cli
 
-## Injected Commands
+## Comandos inyectados
 
 - **`vue-cli-service lint`**
 
   ```
-  Usage: vue-cli-service lint [options] [...files]
+  Ejecuta: vue-cli-service lint [options] [...files]
 
-  Options:
+  Opciones:
 
-    --format [formatter] specify formatter (default: codeframe)
-    --no-fix             do not fix errors
-    --max-errors         specify number of errors to make build failed (default: 0)
-    --max-warnings       specify number of warnings to make build failed (default: Infinity)
+    --format [formatter] especifica el formateador (predeterminado: codeframe)
+    --no-fix             no corrije errores
+    --max-errors         especifique el número de errores para hacer que la compilación falle (predeterminado: 0)
+    --max-warnings       especifique el número de advertencias para hacer que la compilación falle (predeterminado: Infinito)
   ```
 
-  Lints and fixes files. If no specific files are given, it lints all files in `src` and `test`.
+  Formatea y arregla archivos. Si no se proporcionan archivos específicos, se unen todos los archivos en `src` y `test`.
 
-  Other [ESLint CLI options](https://eslint.org/docs/user-guide/command-line-interface#options) are also supported.
+  Otras [opciones de ESLint CLI](https://eslint.org/docs/user-guide/command-line-interface#options) también son compatibles.
 
-## Configuration
+## Configuración
 
-ESLint can be configured via `.eslintrc` or the `eslintConfig` field in `package.json`.
+ESLint se puede configurar a través de `.eslintrc` o el campo `eslintConfig` en `package.json`.
 
-Lint-on-save during development with `eslint-loader` is enabled by default. It can be disabled with the `lintOnSave` option in `vue.config.js`:
+Lint-on-save durante el desarrollo con `eslint-loader` está habilitado por defecto. Se puede deshabilitar con la opción `lintOnSave` en `vue.config.js`:
 
 ``` js
 module.exports = {
@@ -33,11 +33,11 @@ module.exports = {
 }
 ```
 
-When set to `true`, `eslint-loader` will emit lint errors as warnings. By default, warnings are only logged to the terminal and does not fail the compilation.
+Cuando se establece en `true`, `eslint-loader` emitirá errores de lint como advertencias. Por defecto, las advertencias solo se registran en el terminal y no fallan en la compilación.
 
-To make lint errors show up in the browser overlay, you can use `lintOnSave: 'error'`. This will force `eslint-loader` to always emit errors. this also means lint errors will now cause the compilation to fail.
+Para que aparezcan errores de lint en la superposición del navegador, puede usar `lintOnSave: 'error'`. Esto obligará a `eslint-loader` a emitir siempre errores. Esto también significa que los errores de lint ahora harán que la compilación falle.
 
-Alternatively, you can configure the overlay to display both warnings and errors:
+Alternativamente, puede configurar la superposición para mostrar advertencias y errores:
 
 ``` js
 // vue.config.js
@@ -51,7 +51,7 @@ module.exports = {
 }
 ```
 
-When `lintOnSave` is a truthy value, `eslint-loader` will be applied in both development and production. If you want to disable `eslint-loader` during production build, you can use the following config:
+Cuando `lintOnSave` es un valor verdadero, `eslint-loader` se aplicará tanto en el desarrollo como en la producción. Si desea deshabilitar `eslint-loader` durante la compilación de producción, puede usar la siguiente configuración:
 
 ``` js
 // vue.config.js
@@ -60,13 +60,13 @@ module.exports = {
 }
 ```
 
-## Installing in an Already Created Project
+## Instalación en un proyecto ya creado
 
 ``` sh
 vue add eslint
 ```
 
-## Injected webpack-chain Rules
+## Reglas webpack-chain inyectadas
 
 - `config.module.rule('eslint')`
 - `config.module.rule('eslint').use('eslint-loader')`

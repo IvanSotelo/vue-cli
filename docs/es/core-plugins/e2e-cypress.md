@@ -1,47 +1,47 @@
 # @vue/cli-plugin-e2e-cypress
 
-> e2e-cypress plugin for vue-cli
+> plugin e2e-cypress para vue-cli
 
-This adds E2E testing support using [Cypress](https://www.cypress.io/).
+Esto agrega soporte para pruebas E2E usando [Cypress](https://www.cypress.io/).
 
-Cypress offers a rich interactive interface for running E2E tests, but currently only supports running the tests in Chromium. If you have a hard requirement on E2E testing in multiple browsers, consider using the Selenium-based [@vue/cli-plugin-e2e-nightwatch](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-e2e-nightwatch).
+Cypress ofrece una rica interfaz interactiva para ejecutar pruebas E2E, pero actualmente solo admite la ejecución de pruebas en Chromium. Si tiene un requisito difícil en las pruebas E2E en varios navegadores, considere usar el Selenium-based [@vue/cli-plugin-e2e-nightwatch](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-e2e-nightwatch).
 
-## Injected Commands
+## Comandos inyectados
 
 - **`vue-cli-service test:e2e`**
 
-  Run e2e tests with `cypress run`.
+  Ejecute pruebas e2e con `cypress run`.
 
-  By default it launches Cypress in interactive mode with a GUI. If you want to run the tests in headless mode (e.g. for CI), you can do so with the `--headless` option.
+  Por defecto, lanza Cypress en modo interactivo con una GUI. Si desea ejecutar las pruebas en modo headless (por ejemplo, para CI), puede hacerlo con la opción `--headless`.
 
-  The command automatically starts a server in production mode to run the e2e tests against. If you want to run the tests multiple times without having to restart the server every time, you can start the server with `vue-cli-service serve --mode production` in one terminal, and then run e2e tests against that server using the `--url` option.
+  El comando inicia automáticamente un servidor en modo de producción para ejecutar las pruebas de e2e. Si desea ejecutar las pruebas varias veces sin tener que reiniciar el servidor cada vez, puede iniciar el servidor con `vue-cli-service serve --mode production` en una terminal, y luego ejecutar pruebas e2e contra ese servidor usando el Opción `--url`.
 
-  Options:
+  Opciones:
 
   ```
-  --headless run in headless mode without GUI
-  --mode     specify the mode the dev server should run in. (default: production)
-  --url      run e2e tests against given url instead of auto-starting dev server
-  -s, --spec (headless only) runs a specific spec file. defaults to "all"
+  --headless ejecutar en modo headless sin GUI
+  --mode     especifique el modo en el que se debe ejecutar el servidor de desarrollo. (predeterminado: producción)
+  --url      ejecutar pruebas de e2e contra la URL dada en lugar de iniciar automáticamente el servidor de desarrollo
+  -s, --spec (solamente headless) ejecuta un archivo de especificaciones específico. el valor predeterminado es "todos"
   ```
 
-  Additionally:
+  Adicionalmente:
 
-  - In GUI mode, [all Cypress CLI options for `cypress open` are also supported](https://docs.cypress.io/guides/guides/command-line.html#cypress-open);
-  - In `--headless` mode, [all Cypress CLI options for `cypress run` are also supported](https://docs.cypress.io/guides/guides/command-line.html#cypress-run).
+  - En modo GUI, [todas las opciones de Cypress CLI para `cypress open` también son compatibles](https://docs.cypress.io/guides/guides/command-line.html#cypress-open);
+  - En el modo `--headless`, [todas las opciones de Cypress CLI para `cypress run` también son compatibles](https://docs.cypress.io/guides/guides/command-line.html#cypress-run).
 
-  Examples :
-  - Run Cypress in headless mode for a specific file: `vue-cli-service test:e2e --headless --spec tests/e2e/specs/actions.spec.js`
+ Ejemplos:
+   - Ejecute Cypress en modo headless para un archivo específico: `vue-cli-service test:e2e --headless --spec tests/e2e/specs/actions.spec.js`
 
-## Configuration
+## Configuración
 
-We've pre-configured Cypress to place most of the e2e testing related files under `<projectRoot>/tests/e2e`. You can also check out [how to configure Cypress via `cypress.json`](https://docs.cypress.io/guides/references/configuration.html#Options).
+Hemos preconfigurado Cypress para colocar la mayoría de los archivos relacionados con las pruebas de e2e en `<projectRoot>/tests/e2e`. También puede consultar [cómo configurar Cypress a través de `cypress.json`](https://docs.cypress.io/guides/references/configuration.html#Options).
 
-## Environment Variables
+## Variables de entorno
 
-Cypress doesn't load .env files for your test files the same way as `vue-cli` does for your [application code](https://cli.vuejs.org/guide/mode-and-env.html#using-env-variables-in-client-side-code). Cypress supports a few ways to [define env variables](https://docs.cypress.io/guides/guides/environment-variables.html#) but the easiest one is to use .json files (either `cypress.json` or `cypress.env.json`) to define environment variables. Keep in mind those variables are accessible via `Cypress.env` function instead of regular `process.env` object.
+Cypress no carga archivos .env para sus archivos de prueba de la misma manera que lo hace `vue-cli` para su [código de aplicación](https://cli.vuejs.org/guide/mode-and-env.html#using-env-variables-in-client-side-code). Cypress admite algunas formas de [definir variables env](https://docs.cypress.io/guides/guides/environment-variables.html#) pero la más fácil es usar archivos .json (ya sea `cypress.json` o `cypress.env.json`) para definir variables de entorno. Tenga en cuenta que esas variables son accesibles a través de la función `Cypress.env` en lugar del objeto regular `process.env`.
 
-## Installing in an Already Created Project
+## Instalación en un proyecto ya creado
 
 ``` sh
 vue add e2e-cypress

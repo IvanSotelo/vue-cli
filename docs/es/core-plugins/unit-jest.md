@@ -1,25 +1,25 @@
 # @vue/cli-plugin-unit-jest
 
-> unit-jest plugin for vue-cli
+> plugin unit-jest para vue-cli
 
-## Injected Commands
+## Comandos inyectados
 
 - **`vue-cli-service test:unit`**
 
-  Run unit tests with Jest. Default `testMatch` is `<rootDir>/(tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx))` which matches:
+  Ejecute pruebas unitarias con Jest. El valor predeterminado `testMatch` es `<rootDir>/(tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx))` que coincide con:
 
-  - Any files in `tests/unit` that end in `.spec.(js|jsx|ts|tsx)`;
-  - Any js(x)/ts(x) files inside `__tests__` directories.
+  - Cualquier archivo en `tests/unit` que termine en `.spec.(js|jsx|ts|tsx)`;
+  - Cualquier archivo js(x)/ts(x) dentro de los directorios `__tests__`.
 
-  Usage: `vue-cli-service test:unit [options] <regexForTestFiles>`
+  Ejecuta: `vue-cli-service test:unit [options] <regexForTestFiles>`
 
-  All [Jest command line options](https://facebook.github.io/jest/docs/en/cli.html) are also supported.
+  Todas las [Opciones de línea de comando de Jest](https://facebook.github.io/jest/docs/en/cli.html) también son compatibles.
 
-## Debugging Tests
+## Pruebas de depuración
 
-Note that directly running `jest` will fail because the Babel preset requires hints to make your code work in Node.js, so you must run your tests with `vue-cli-service test:unit`.
+Tenga en cuenta que la ejecución directa de `jest` fallará porque el preajuste de Babel requiere sugerencias para que su código funcione en Node.js, por lo que debe ejecutar sus pruebas con `vue-cli-service test:unit`.
 
-If you want to debug your tests via the Node inspector, you can run the following:
+Si desea depurar sus pruebas a través del inspector de Node, puede ejecutar lo siguiente:
 
 ```sh
 # macOS or linux
@@ -29,41 +29,41 @@ node --inspect-brk ./node_modules/.bin/vue-cli-service test:unit --runInBand
 node --inspect-brk ./node_modules/@vue/cli-service/bin/vue-cli-service.js test:unit --runInBand
 ```
 
-## Configuration
+## Configuración
 
-Jest can be configured via `jest.config.js` in your project root, or the `jest` field in `package.json`.
+Jest se puede configurar a través de `jest.config.js` en la raíz de su proyecto, o el campo `jest` en `package.json`.
 
-## Installing in an Already Created Project
+## Instalación en un proyecto ya creado
 
 ```sh
 vue add unit-jest
 ```
 
-## Transform dependencies from `/node_modules`
+## Transforma las dependencias de `/node_modules`
 
-By default, jest doesn't transform anything from `/node_modules`.
+Por defecto, jest no transforma nada de `/node_modules`.
 
-Since jest runs in node, we also don't have to transpile anything that uses modern ECMAScript features as Node >=8 already supports these features, so it's a sensible default. cli-plugin-jest also doesn't respect the `transpileDependencies` option in `vue.config.js` for the same reason.
+Como jest se ejecuta en Node, tampoco tenemos que transpilar nada que use las funciones modernas de ECMAScript, ya que Node >=8 ya admite estas funciones, por lo que es un valor predeterminado razonable. cli-plugin-jest tampoco respeta la opción `transpileDependencies` en `vue.config.js` por la misma razón.
 
-However, we have (at least) three cases where we do need to transpile code from `/node_modules` in jest:
+Sin embargo, tenemos (al menos) tres casos en los que necesitamos transpilar código de `/node_modules` en jest:
 
-1. Usage of ES6 `import`/`export` statements, which have to be compiled to commonjs `module.exports`
-2. Single File Components (`.vue` files) which have to be run through `vue-jest`
-3. Typescript code
+1.  Uso de declaraciones ES6 `import`/`export`, que deben compilarse en commonjs `module.exports`
+2.  Componentes de archivo único (archivos `.vue`) que deben ejecutarse a través de `vue-jest`
+3.  Código Typescript
 
-To do this, we need to add an exception to the `transformIgnorePatterns` option of jest. This is its default value:
+Para hacer esto, necesitamos agregar una excepción a la opción `transformIgnorePatterns` de jest. Este es su valor predeterminado:
 
 ```javascript
 transformIgnorePatterns: ['/node_modules/']
 ```
 
-We have to add exceptions to this pattern with a RegExp negative lookahead:
+Tenemos que agregar excepciones a este patrón con una anticipación negativa RegEx:
 
 ```javascript
 transformIgnorePatterns: ['/node_modules/(?!name-of-lib-o-transform)']
 ```
 
-To exclude multiple libraries:
+Para excluir varias librerias:
 
 ```javascript
 transformIgnorePatterns: ['/node_modules/(?!lib-to-transform|other-lib)']

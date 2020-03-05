@@ -1,33 +1,33 @@
 # @vue/cli-plugin-e2e-nightwatch
 
-> e2e-nightwatch plugin for vue-cli
+> plugin e2e-nightwatch para vue-cli
 
-## Injected Commands
+## Comandos inyectados
 
 - **`vue-cli-service test:e2e`**
 
-  Run end-to-end tests with [Nightwatch.js](https://nightwatchjs.org).
+  Ejecute pruebas de punto a punto con [Nightwatch.js](https://nightwatchjs.org).
 
-  Options:
+  Opciones:
 
   ```
-  --url                 run the tests against given url instead of auto-starting dev server
-  --config              use custom nightwatch config file (overrides internals)
-  --headless            use chrome or firefox in headless mode
-  --parallel            enable parallel mode via test workers (only available in chromedriver)
-  --use-selenium        use Selenium standalone server instead of chromedriver or geckodriver
-  -e, --env             specify comma-delimited browser envs to run in (default: chrome)
-  -t, --test            specify a test to run by name
-  -f, --filter          glob to filter tests by filename
+  --url                 ejecutar las pruebas contra la URL dada en lugar de iniciar automáticamente el servidor de desarrollo
+  --config              usar el archivo de configuración de nightwatch personalizado (anula las partes internas)
+  --headless            usa Chrome o Firefox en modo headless
+  --parallel            habilitar el modo paralelo a través de trabajadores de prueba (solo disponible en chromedriver)
+  --use-selenium        use un servidor independiente Selenium en lugar de chromedriver o geckodriver
+  -e, --env             especifica envs del navegador delimitados por comas para ejecutar (predeterminado: Chrome)
+  -t, --test            especificar una prueba para ejecutar por nombre
+  -f, --filter          glob para filtrar las pruebas por nombre de archivo
   ```
 
-  Additionally, all [Nightwatch CLI options](https://nightwatchjs.org/guide/running-tests/#command-line-options) are also supported. 
-  E.g.: `--verbose`, `--retries` etc.
-  
+  Además, todas las [Opciones de CLI de Nightwatch](https://nightwatchjs.org/guide/running-tests/#command-line-options) también son compatibles.
+  ej: `--verbose`, `--retries` etc.
 
-## Project Structure
 
-The following structure will be generated when installing this plugin. There are examples for most testing concepts in Nightwatch available.    
+## Estructura del proyecto
+
+La siguiente estructura se generará al instalar este complemento. Hay ejemplos para la mayoría de los conceptos de prueba en Nightwatch disponibles.
 
 ```
 tests/e2e/
@@ -46,97 +46,97 @@ tests/e2e/
 ```
 
 #### `specs`
-The main location where tests are located. Can contain sub-folders which can be targeted during the run using the `--group` argument. [More info](https://nightwatchjs.org/guide/running-tests/#test-groups).
+La ubicación principal donde se ubican las pruebas. Puede contener subcarpetas que pueden dirigirse durante la ejecución utilizando el argumento `--group`. [Más información](https://nightwatchjs.org/guide/running-tests/#test-groups).
 
 #### `custom-assertions`
-Files located here are loaded automatically by Nightwatch and placed onto the `.assert` and `.verify` api namespaces to extend the Nightwatch built-in assertions. See [writing custom assertions](https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-assertions) for details.
+Nightwatch carga automáticamente los archivos que se encuentran aquí y los coloca en los espacios de nombres de la API `.assert` y` .verify` para ampliar las aserciones incorporadas de Nightwatch. Ver [escribir afirmaciones personalizadas](https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-assertions) para detalles.
 
 #### `custom-commands`
-Files located here are loaded automatically by Nightwatch and placed onto the main `browser` api object to extend the built-in Nightwatch commands. See [writing custom commands](https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-commands) for details.
+Nightwatch carga automáticamente los archivos que se encuentran aquí y los coloca en el objeto principal del 'navegador' para extender los comandos integrados de Nightwatch. Ver [escribir comandos personalizados](https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-commands) para detalles.
 
 #### `page objects`
-Working with page objects is a popular methodology in end-to-end UI testing. Files placed in this folder are automatically loaded onto the `.page` api namespace, with the name of the file being the name of the page object. See [working with page objects](https://nightwatchjs.org/guide/working-with-page-objects/) section for details.  
+Trabajar con objetos de página es una metodología popular en las pruebas de interfaz de usuario de extremo a extremo. Los archivos colocados en esta carpeta se cargan automáticamente en el espacio de nombres api `.page`, siendo el nombre del archivo el nombre del objeto de página. Consulte la sección [trabajar con objetos de página](https://nightwatchjs.org/guide/working-with-page-objects/) para detalles.
 
 #### `globals.js`
-The external globals file which can hold global properties or hooks. See [test globals](https://nightwatchjs.org/gettingstarted/configuration/#test-globals) section.
+El archivo globals externo puede contener propiedades globales o hooks. Ver la sección [prueba global](https://nightwatchjs.org/gettingstarted/configuration/#test-globals).
 
-## Installing in an Already Created Project
+## Instalación en un proyecto ya creado
 
 ``` sh
 vue add e2e-nightwatch
 ```
 
-## Configuration
+## Configuración
 
-We've pre-configured Nightwatch to run with Chrome by default. Firefox is also available via `--env firefox`. If you wish to run end-to-end tests in additional browsers (e.g. Safari, Microsoft Edge), you will need to add a `nightwatch.conf.js` or `nightwatch.json` in your project root to configure additional browsers. The config will be merged into the [internal Nightwatch config](https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-plugin-e2e-nightwatch/nightwatch.config.js).
+Preconfiguramos Nightwatch para que se ejecute con Chrome de forma predeterminada. Firefox también está disponible a través de `--env firefox`. Si desea ejecutar pruebas de extremo a extremo en navegadores adicionales (por ejemplo, Safari, Microsoft Edge), deberá agregar un `nightwatch.conf.js` o` nightwatch.json` en la raíz del proyecto para configurar navegadores adicionales. La configuración se fusionará en la [configuración interna de Nightwatch](https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-plugin-e2e-nightwatch/nightwatch.config.js).
 
-Alternatively, you can completely replace the internal config with a custom config file using the `--config` option.
+Alternativamente, puede reemplazar completamente la configuración interna con un archivo de configuración personalizado utilizando la opción `--config`.
 
-Consult Nightwatch docs for [configuration options](https://nightwatchjs.org/gettingstarted/configuration/) and how to [setup browser drivers](http://nightwatchjs.org/gettingstarted#browser-drivers-setup).
+Consulte los documentos de Nightwatch para [opciones de configuración](https://nightwatchjs.org/gettingstarted/configuration/) y cómo [configurar los controladores del navegador](http://nightwatchjs.org/gettingstarted#browser-drivers-setup).
 
-## Running Tests
+## Ejecutando pruebas
 
-By default, all tests inside the `specs` folder will be run using Chrome. If you'd like to run end-to-end tests against Chrome (or Firefox) in headless mode, simply pass the `--headless` argument.
+Por defecto, todas las pruebas dentro de la carpeta `specs` se ejecutarán con Chrome. Si desea ejecutar pruebas de extremo a extremo contra Chrome (o Firefox) en modo headless, simplemente pase el argumento `--headless`.
 
 ```sh
 $ vue-cli-service test:e2e
 ```
 
-**Running a single test**
+**Ejecutando una sola prueba**
 
-To run a single test supply the filename path. E.g.:
+Para ejecutar una sola prueba, proporcione la ruta del nombre del archivo. P.ej.:
 
 ```sh
 $ vue-cli-service test:e2e tests/e2e/specs/test.js
 ```
 
-**Skip Dev server auto-start**
+**Saltar inicio automático del servidor Dev**
 
-If the development server is already running and you want to skip starting it automatically, pass the `--url` argument:
+Si el servidor de desarrollo ya se está ejecutando y desea omitir el inicio automático, pase el argumento `--url`:
 
 ```sh
 $ vue-cli-service test:e2e --url http://localhost:8080/
 ```
 
-**Running in Firefox**
+**Ejecutando en Firefox**
 
-Support for running tests in Firefox is also available by default. Simply run the following (optionally add `--headless` to run Firefox in headless mode):
+El soporte para ejecutar pruebas en Firefox también está disponible de forma predeterminada. Simplemente ejecute lo siguiente (opcionalmente agregue `--headless` para ejecutar Firefox en modo sin cabeza):
 
 ```sh
 $ vue-cli-service test:e2e --env firefox [--headless]
 ```
 
-**Running in Firefox and Chrome simultaneously**
+**Ejecutando en Firefox y Chrome simultáneamente**
 
-You can also run the tests simultaneously in both browsers by supplying both test environments separated by a comma (",") - no spaces.
+También puede ejecutar las pruebas simultáneamente en ambos navegadores proporcionando ambos entornos de prueba separados por una coma (","), sin espacios.
 
 ```sh
 $ vue-cli-service test:e2e --env firefox,chrome [--headless]
 ```
 
-**Running Tests in Parallel**
+**Ejecución de pruebas en paralelo**
 
-For a significantly faster test run, you can enable parallel test running when there are several test suites. Concurrency is performed at the file level and is distributed automatically per available CPU core.  
+Para una ejecución de prueba significativamente más rápida, puede habilitar la ejecución de prueba paralela cuando hay varios conjuntos de pruebas. La concurrencia se realiza a nivel de archivo y se distribuye automáticamente por núcleo de CPU disponible.
 
-For now, this is only available in Chromedriver. Read more about [parallel running](https://nightwatchjs.org/guide/running-tests/#parallel-running) in the Nightwatch docs.
+Por ahora, esto solo está disponible en Chromedriver. Leer más sobre [funcionamiento en paralelo](https://nightwatchjs.org/guide/running-tests/#parallel-running) en la documentacióm de Nightwatch.
 
 ```sh
 $ vue-cli-service test:e2e --parallel
 ```
 
-**Running with Selenium**
+**Correr con Selenium**
 
-Since `v4`, the Selenium standalone server is not included anymore in this plugin and in most cases running with Selenium is not required since Nightwatch v1.0. 
+Desde `v4`, el servidor independiente Selenium ya no está incluido en este complemento y, en la mayoría de los casos, no se requiere ejecutar Selenium desde Nightwatch v1.0.
 
-It is still possible to use the Selenium server, by following these steps:
+Todavía es posible usar el servidor Selenium siguiendo estos pasos:
 
-__1.__ Install `selenium-server` NPM package:
+__1 .__ Instalar el paquete NPM `selenium-server`:
 
   ```sh
   $ npm install selenium-server --save-dev
   ```
-  
-__2.__ Run with `--use-selenium` cli argument:
+
+__2 .__ Ejecutar con el argumento cli `--use-selenium`:
 
   ```sh
   $ vue-cli-service test:e2e --use-selenium

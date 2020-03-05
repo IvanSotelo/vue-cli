@@ -1,83 +1,81 @@
 # @vue/cli-plugin-pwa
 
-> pwa plugin for vue-cli
+> plugin pwa para vue-cli
 
-The service worker added with this plugin is only enabled in the production environment (e.g. only if you run `npm run build` or `yarn build`). Enabling service worker in a development mode is not a recommended practice, because it can lead to the situation when previously cached assets are used and the latest local changes are not included.
+El service worker agregado con este plugin solo está habilitado en el entorno de producción (por ejemplo, solo si ejecuta `npm run build` o `yarn build`). La habilitación del service worker en un modo de desarrollo no es una práctica recomendada, ya que puede conducir a la situación cuando se utilizan activos almacenados en caché previamente y no se incluyen los últimos cambios locales.
 
-Instead, in the development mode the `noopServiceWorker.js` is included. This service worker file is effectively a 'no-op' that will reset any previous service worker registered for the same host:port combination.
+En cambio, en el modo de desarrollo se incluye el `noopServiceWorker.js`. Este archivo de trabajador de servicio es efectivamente un 'no-op' que restablecerá cualquier trabajador de servicio anterior registrado para la misma combinación de host: puerto.
 
-If you need to test a service worker locally, build the application and run a simple HTTP-server from your build directory. It's recommended to use a browser incognito window to avoid complications with your browser cache.
+Si necesita probar un trabajador de servicio localmente, compile la aplicación y ejecute un servidor HTTP simple desde su directorio de compilación. Se recomienda utilizar una ventana de incógnito del navegador para evitar complicaciones con la memoria caché del navegador.
 
-## Configuration
+## Configuración
 
-Configuration is handled via the `pwa` property of either the `vue.config.js`
-file, or the `"vue"` field in `package.json`.
+La configuración se maneja a través de la propiedad `pwa` del archivo `vue.config.js`, o el campo `"vue"` del `package.json`.
 
 - **pwa.workboxPluginMode**
 
-  This allows you to the choose between the two modes supported by the underlying
+  Esto le permite elegir entre los dos modos admitidos por el subyacente
   [`workbox-webpack-plugin`](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin).
 
-  - `'GenerateSW'` (default), will lead to a new service worker file being created
-  each time you rebuild your web app.
+  - `'GenerateSW'` (por defecto), conducirá a la creación de un nuevo archivo de service worker
+   cada vez que reconstruye su aplicación web.
 
-  - `'InjectManifest'` allows you to start with an existing service worker file,
-  and creates a copy of that file with a "precache manifest" injected into it.
+  - `'InjectManifest'` le permite comenzar con un archivo existente del service worker,
+   y crea una copia de ese archivo con un "manifiesto precache" inyectado en él.
 
-  The "[Which Plugin to Use?](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#which_plugin_to_use)"
-  guide can help you choose between the two modes.
+  La guía "[¿Qué plugin usar?](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#which_plugin_to_use)"
+  puede ayudarlo a elegir entre los dos modos.
 
 - **pwa.workboxOptions**
 
-  These options are passed on through to the underlying `workbox-webpack-plugin`.
+  Estas opciones se pasan al subyacente `workbox-webpack-plugin`.
 
-  For more information on what values are supported, please see the guide for
-  [`GenerateSW`](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#full_generatesw_config)
-  or for [`InjectManifest`](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#full_injectmanifest_config).
+  Para obtener más información sobre qué valores son compatibles, consulte la guía para[`GenerateSW`](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#full_generatesw_config)
+  o para [`InjectManifest`](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#full_injectmanifest_config).
 
 - **pwa.name**
 
-  - Default: "name" field in `package.json`
+  - Por defecto: "name" del campo en `package.json`
 
-    Used as the value for the `apple-mobile-web-app-title` meta tag in the generated HTML. Note you will need to edit `public/manifest.json` to match this.
+    Se usa como el valor para la metaetiqueta `apple-mobile-web-app-title` en el HTML generado. Tenga en cuenta que deberá editar `public/manifest.json` para que coincida con esto.
 
 - **pwa.themeColor**
 
-  - Default: `'#4DBA87'`
+  - Por defecto: `'#4DBA87'`
 
 - **pwa.msTileColor**
 
-  - Default: `'#000000'`
+  - Por defecto: `'#000000'`
 
 - **pwa.appleMobileWebAppCapable**
 
-  - Default: `'no'`
+  - Por defecto: `'no'`
 
-    This defaults to `'no'` because iOS before 11.3 does not have proper PWA support. See [this article](https://medium.com/@firt/dont-use-ios-web-app-meta-tag-irresponsibly-in-your-progressive-web-apps-85d70f4438cb) for more details.
+    El valor predeterminado es `'no'` porque para iOS inferiores a 11.3 no tiene el soporte PWA adecuado. Ver [este artículo](https://medium.com/@firt/dont-use-ios-web-app-meta-tag-irresponsibly-in-your-progressive-web-apps-85d70f4438cb) para mayor información.
 
 - **pwa.appleMobileWebAppStatusBarStyle**
 
-  - Default: `'default'`
+  - Por defecto: `'default'`
 
 - **pwa.assetsVersion**
 
-  - Default: `''`
+  - Por defecto: `''`
 
-    This option is used if you need to add a version to your icons and manifest, against browser’s cache. This will append `?v=<pwa.assetsVersion>` to the URLs of the icons and manifest.
+    Esta opción se utiliza si necesita agregar una versión a sus iconos y manifiesto, en la memoria caché del navegador. Esto agregará `?v=<pwa.assetsVersion>` a las URL de los iconos y el manifiesto.
 
 - **pwa.manifestPath**
 
-  - Default: `'manifest.json'`
+  - Por defecto: `'manifest.json'`
 
-    The path of app’s manifest.
+    La ruta del manifiesto de la aplicación.
 
 - **pwa.manifestOptions**
 
-  - Default: `{}`
+  - Por defecto: `{}`
 
-    The object will be used to generate the `manifest.json`
+    El objeto se usará para generar el `manifest.json`
 
-    If the following attributes are not defined in the object, the options of `pwa` or default options will be used instead.
+    Si los siguientes atributos no están definidos en el objeto, se utilizarán las opciones de `pwa` u opciones predeterminadas.
       - name: `pwa.name`
       - short_name: `pwa.name`
       - start_url: `'.'`
@@ -86,7 +84,7 @@ file, or the `"vue"` field in `package.json`.
 
 - **pwa.iconPaths**
 
-  - Defaults:
+  - Por defectos:
 
     ```js
     {
@@ -98,9 +96,9 @@ file, or the `"vue"` field in `package.json`.
     }
     ```
 
-    Change these values to use different paths for your icons.
+    Cambie estos valores para usar diferentes rutas para sus iconos.
 
-### Example Configuration
+### Ejemplo de Configuración
 
 ```js
 // Inside vue.config.js
@@ -124,12 +122,12 @@ module.exports = {
 }
 ```
 
-## Installing in an Already Created Project
+## Instalación en un proyecto ya creado
 
 ``` sh
 vue add pwa
 ```
 
-## Injected webpack-chain Rules
+## Reglas webpack-chain inyectadas
 
 - `config.plugin('workbox')`

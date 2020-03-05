@@ -1,38 +1,38 @@
 # @vue/cli-plugin-babel
 
-> babel plugin for vue-cli
+> plugin babel para vue-cli
 
-## Configuration
+## Configuración
 
-Uses Babel 7 + `babel-loader` + [@vue/babel-preset-app](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/babel-preset-app) by default, but can be configured via `babel.config.js` to use any other Babel presets or plugins.
+Utiliza Babel 7 + `babel-loader` + [@vue/babel-preset-app](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/babel-preset-app) de forma predeterminada, pero se puede configurar a través de `babel.config.js` para usar cualquier otro preajuste o complemento de Babel.
 
-By default, `babel-loader` excludes files inside `node_modules` dependencies. If you wish to explicitly transpile a dependency module, you will need to add it to the `transpileDependencies` option in `vue.config.js`:
+Por defecto, `babel-loader` excluye los archivos dentro de las dependencias `node_modules`. Si desea transpilar explícitamente un módulo de dependencia, deberá agregarlo a la opción `transpileDependencies` en `vue.config.js`:
 
 ``` js
 module.exports = {
   transpileDependencies: [
-    // can be string or regex
+    // puede ser string o regex
     'my-dep',
     /other-dep/
   ]
 }
 ```
 
-## Caching
+## Almacenamiento en caché
 
-[cache-loader](https://github.com/webpack-contrib/cache-loader) is enabled by default and cache is stored in `<projectRoot>/node_modules/.cache/babel-loader`.
+[cache-loader](https://github.com/webpack-contrib/cache-loader) está habilitado de forma predeterminada y el caché se almacena en `<projectRoot>/node_modules/.cache/babel-loader`.
 
-## Parallelization
+## Paralelización
 
-[thread-loader](https://github.com/webpack-contrib/thread-loader) is enabled by default when the machine has more than 1 CPU cores. This can be turned off by setting `parallel: false` in `vue.config.js`.
+[thread-loader](https://github.com/webpack-contrib/thread-loader) está habilitado de forma predeterminada cuando la máquina tiene más de 1 núcleos de CPU. Esto se puede desactivar configurando `parallel: false` en `vue.config.js`.
 
-## Installing in an Already Created Project
+## Instalación en un proyecto ya creado
 
 ``` sh
 vue add babel
 ```
 
-## Injected webpack-chain Rules
+## Reglas webpack-chain inyectadas
 
 - `config.rule('js')`
 - `config.rule('js').use('babel-loader')`

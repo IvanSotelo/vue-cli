@@ -1,39 +1,39 @@
 # @vue/cli-plugin-typescript
 
-> typescript plugin for vue-cli
+> plugin typescript para vue-cli
 
-Uses TypeScript + `ts-loader` + [fork-ts-checker-webpack-plugin](https://github.com/Realytics/fork-ts-checker-webpack-plugin) for faster off-thread type checking.
+Utiliza TypeScript + `ts-loader` + [fork-ts-checker-webpack-plugin](https://github.com/Realytics/fork-ts-checker-webpack-plugin) para una verificación más rápida del tipo fuera de hilo.
 
-## Configuration
+## Configuración
 
-TypeScript can be configured via `tsconfig.json`.
+TypeScript se puede configurar a través de `tsconfig.json`.
 
-Since `3.0.0-rc.6`, `typescript` is now a peer dependency of this package, so you can use a specific version of TypeScript by updating your project's `package.json`.
+Desde `3.0.0-rc.6`, `typescript` ahora es una dependencia de este paquete, por lo que puede usar una versión específica de TypeScript actualizando el `package.json` de su proyecto.
 
-This plugin can be used alongside `@vue/cli-plugin-babel`. When used with Babel, this plugin will output ES2015 and delegate the rest to Babel for auto polyfill based on browser targets.
+Este complemento se puede usar junto con `@vue/cli-plugin-babel`. Cuando se usa con Babel, este complemento generará ES2015 y delegará el resto a Babel para autocompletar según los objetivos del navegador.
 
-## Injected Commands
+## Comandos inyectados
 
-If opted to use [TSLint](https://palantir.github.io/tslint/) during project creation, `vue-cli-service lint` will be injected.
+Si optó por usar [TSLint](https://palantir.github.io/tslint/) durante la creación del proyecto, `vue-cli-service lint` será inyectado.
 
-## Caching
+## Almacenamiento en caché
 
-[cache-loader](https://github.com/webpack-contrib/cache-loader) is enabled by default and cache is stored in `<projectRoot>/node_modules/.cache/ts-loader`.
+[cache-loader](https://github.com/webpack-contrib/cache-loader) está habilitado de forma predeterminada y el caché se almacena en `<projectRoot>/node_modules/.cache/ts-loader`.
 
-## Parallelization
+## Paralelización
 
-[thread-loader](https://github.com/webpack-contrib/thread-loader) is enabled by default when the machine has more than 1 CPU cores. This can be turned off by setting `parallel: false` in `vue.config.js`.
+[thread-loader](https://github.com/webpack-contrib/thread-loader) está habilitado de forma predeterminada cuando la máquina tiene más de 1 núcleos de CPU. Esto se puede desactivar configurando `parallel: false` en `vue.config.js`.
 
-## Installing in an Already Created Project
+## Instalación en un proyecto ya creado
 
 ``` sh
 vue add typescript
 ```
 
-## Injected webpack-chain Rules
+## Reglas webpack-chain inyectadas
 
 - `config.rule('ts')`
 - `config.rule('ts').use('ts-loader')`
-- `config.rule('ts').use('babel-loader')` (when used alongside `@vue/cli-plugin-babel`)
+- `config.rule('ts').use('babel-loader')` (cuando se usa junto a `@vue/cli-plugin-babel`)
 - `config.rule('ts').use('cache-loader')`
 - `config.plugin('fork-ts-checker')`

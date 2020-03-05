@@ -1,8 +1,8 @@
 # @vue/cli-plugin-vuex
 
-> vuex plugin for vue-cli
+> plugin vuex para vue-cli
 
-## Installing in an Already Created Project
+## Instalación en un proyecto ya creado
 
 ``` sh
 vue add vuex
